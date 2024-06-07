@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: prometheus
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    include:
+      show-details: always
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true

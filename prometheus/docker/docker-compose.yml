@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - "/mnt/d/repositorios/soluciones de software/spring-boot-demo/prometheus/docker/prometheus.yml:/etc/prometheus/prometheus.yml"
+    networks:
+      - prometheus-network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - prometheus-network
+
+networks:
+  prometheus-network:
+    driver: bridge

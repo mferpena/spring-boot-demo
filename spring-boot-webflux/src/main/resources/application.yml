@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: myuser
+    url: jdbc:postgresql://localhost:5432/mydb
+    password: mypassword
+  sql:
+    init:
+      mode: always
+  r2dbc:
+    pool:
+      max-size: '20'
+      enabled: 'true'
+      initial-size: '10'
+    password: mypassword
+    url: r2dbc:postgresql://localhost:5432/mydb
+    username: myuser

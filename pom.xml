@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.7-SNAPSHOT</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.sds</groupId>
+	<artifactId>spring-boot-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>spring-boot-demo</name>
+	<description>Microservice to manage memberships</description>
+
+    <modules>
+		<module>spring-boot-amqp</module>
+		<module>spring-boot-batch</module>
+		<module>spring-boot-data-jdbc</module>
+		<module>spring-boot-data-jpa</module>
+		<module>spring-boot-data-mongodb</module>
+		<module>spring-boot-data-mongodb-reactive</module>
+		<module>spring-boot-data-r2dbc</module>
+		<module>spring-boot-data-redis</module>
+		<module>spring-shell</module>
+		<module>spring-cloud-openfeign</module>
+		<module>spring-boot-jdbc</module>
+		<module>spring-boot-data-elasticsearch</module>
+		<module>spring-boot-data-redis-reactive</module>
+		<module>spring-boot-mail</module>
+		<module>spring-boot-security</module>
+		<module>spring-boot-web</module>
+		<module>spring-boot-webflux</module>
+		<module>spring-boot-websocket</module>
+		<module>prometheus</module>
+		<module>new-relic</module>
+		<module>rabbit-stream</module>
+		<module>kafka-streams</module>
+		<module>spring-kafka</module>
+		<module>spring-boot-validation</module>
+		<module>mapstruct</module>
+		<module>spring-boot-devtools</module>
+		<module>spring-cloud-netflix-eureka-server</module>
+		<module>spring-cloud-config-server</module>
+		<module>spring-cloud-gateway</module>
+		<module>spring-cloud-netflix-eureka-client</module>
+		<module>spring-cloud-azure-storage</module>
+		<module>spring-cloud-azure-actuator</module>
+		<module>spring-cloud-function-web</module>
+	</modules>
+
+    <properties>
+		<java.version>17</java.version>
+		<spring-cloud-azure.version>5.13.0</spring-cloud-azure.version>
+		<spring-cloud.version>2023.0.2</spring-cloud.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.azure.spring</groupId>
+			<artifactId>spring-cloud-azure-starter</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.azure.spring</groupId>
+				<artifactId>spring-cloud-azure-dependencies</artifactId>
+				<version>${spring-cloud-azure.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
